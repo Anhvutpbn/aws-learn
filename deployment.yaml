@@ -1,1 +1,20 @@
-Kubernetes Deployment YAML
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: coworking-service
+  namespace: default
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: coworking-service
+  template:
+    metadata:
+      labels:
+        app: coworking-service
+    spec:
+      containers:
+      - name: coworking-service
+        image: your-account-id.dkr.ecr.your-region.amazonaws.com/coworking-service:latest
+        ports:
+        - containerPort: 80
