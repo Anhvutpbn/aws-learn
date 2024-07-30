@@ -20,7 +20,7 @@ This project sets up a coworking space service using Docker and Kubernetes. Belo
 
 ## ECR
 aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 836047599732.dkr.ecr.us-east-1.amazonaws.com
-docker build -t coworking-service .
+docker build -t coworking-service.
 docker tag coworking-service:latest 836047599732.dkr.ecr.us-east-1.amazonaws.com/demok8s:latest
 docker push 836047599732.dkr.ecr.us-east-1.amazonaws.com/demok8s:latest
 
