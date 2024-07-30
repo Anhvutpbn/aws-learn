@@ -18,11 +18,26 @@ This project sets up a coworking space service using Docker and Kubernetes. Belo
 4. **Monitoring**:
    - Use CloudWatch Container Insights to monitor the logs and health status of the application.
 
+## ECR
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 836047599732.dkr.ecr.us-east-1.amazonaws.com
+docker build -t coworking-service .
+docker tag coworking-service:latest 836047599732.dkr.ecr.us-east-1.amazonaws.com/demok8s:latest
+docker push 836047599732.dkr.ecr.us-east-1.amazonaws.com/demok8s:latest
+
+
 ## Kubernetes Commands
 
 - Deploy the service:
   ```sh
-  kubectl apply -f deployment.yaml
-  kubectl apply -f service.yaml
-  kubectl apply -f configmap.yaml
-  kubectl apply -f secrets.yaml
+   aws eks update-kubeconfig --region us-east-1 --name k8s
+   kubectl get nodes
+   kubectl apply -f postgres-secrets.yaml
+   kubectl apply -f database-deployment.yaml
+   kubectl apply -f database-service.yaml
+   kubectl get svc
+   kubectl describe deployment coworking-service
+   kubectl get deployments
+   kubectl apply -f deployment.yaml
+   kubectl get deployments
+   kubectl describe deployment coworking-service
+   kubectl config current-context

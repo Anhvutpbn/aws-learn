@@ -1,1 +1,7 @@
-Kubernetes ConfigMap YAML
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: coworking-config
+  namespace: default
+data:
+  example.env: "This is an example environment variable"

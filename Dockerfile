@@ -1,5 +1,5 @@
-# Use an official Python runtime as a parent image
-FROM python:3.8-slim
+# Use the Python 3.8 image from AWS ECR Public Gallery as a parent image
+FROM public.ecr.aws/lambda/python:3.8
 
 # Set the working directory
 WORKDIR /app

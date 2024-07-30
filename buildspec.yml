@@ -5,7 +5,7 @@ phases:
     commands:
       - echo Logging in to Amazon ECR...
       - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 836047599732.dkr.ecr.us-east-1.amazonaws.com
-      - REPOSITORY_URI=836047599732.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/coworking-service
+      - REPOSITORY_URI=836047599732.dkr.ecr.us-east-1.amazonaws.com/demok8s
   build:
     commands:
       - echo Build started on `date`
